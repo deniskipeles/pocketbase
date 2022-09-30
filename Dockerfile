@@ -23,4 +23,4 @@ FROM scratch
 EXPOSE 8090
 
 COPY --from=downloader /pocketbase /usr/local/bin/pocketbase
-CMD ["/usr/local/bin/pocketbase", "serve", "--http=bnet.onrender.com:80"]
+CMD ["/usr/local/bin/pocketbase", "serve", "--http=bnet.onrender.com"]
