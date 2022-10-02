@@ -24,4 +24,4 @@ EXPOSE 8090
 
 COPY --from=downloader /pocketbase /usr/local/bin/pocketbase
 # CMD ["/usr/local/bin/pocketbase", "serve","--https=bnet.onrender.com:8080"]
-ENTRYPOINT ["/usr/local/bin/pocketbase", "serve", "--http=bnet.onrender.com:80","--http=bnet.onrender.com:443", "--dir=/pb_data"]
+ENTRYPOINT ["/usr/local/bin/pocketbase", "serve", "--http=bnet.onrender.com:80","--https=bnet.onrender.com:443"]
