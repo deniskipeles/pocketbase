@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <!--link rel="icon" type="image/svg+xml" href="/images/favicon.svg"-->
+    <!-- <link rel="icon" type="image/png" href="/images/favicon.png"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-4Y9Y3WGG11"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-4Y9Y3WGG11");
+    </script>
+    %sveltekit.head%
+  </head>
+
+  <body data-sveltekit-preload-data="hover" class="bg-white dark:bg-gray-900">
+    <div style="display: contents">
+      <div id="svelte" class="max-h-screen overflow-auto relative">
+        %sveltekit.body%
+      </div>
+    </div>
+  </body>
+</html>
