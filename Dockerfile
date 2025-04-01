@@ -1,24 +1,22 @@
 FROM alpine:latest
 
-ARG PB_VERSION=0.16.4
+ARG PB_VERSION=0.26.6
 
 RUN apk add --no-cache \
     unzip \
     ca-certificates
 
-# Create a directory to store the existing data if it doesn't exist
-RUN mkdir -p /pb/pb_data
-
-# download and unzip PocketBase into a temporary directory
-WORKDIR /tmp
+# download and unzip PocketBase
 ADD https://github.com/pocketbase/pocketbase/releases/download/v${PB_VERSION}/pocketbase_${PB_VERSION}_linux_amd64.zip /tmp/pb.zip
-RUN unzip /tmp/pb.zip -d /tmp/pb_extracted
+RUN unzip /tmp/pb.zip -d /pb/
 
-# Move necessary files to appropriate locations, excluding pb_data
-RUN find /tmp/pb_extracted -mindepth 1 -maxdepth 1 -not -name "pb_data" -exec mv -t /pb {} +
+# uncomment to copy the local pb_migrations dir into the image
+# COPY ./pb_migrations /pb/pb_migrations
 
-# Expose the necessary ports
+# uncomment to copy the local pb_hooks dir into the image
+# COPY ./pb_hooks /pb/pb_hooks
+
 EXPOSE 8080
 
-# Start PocketBase
-CMD ["/pb/pocketbase", "serve", "--http=0.0.0.0:8080"]
+# start PocketBase
+CMD ["/pb/pocketbase", "serve", "--http=0.0.0.0:800"]
